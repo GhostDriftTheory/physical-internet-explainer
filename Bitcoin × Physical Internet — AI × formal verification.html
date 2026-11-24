@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin × Physical Internet — a structural comparison (AI × formal verification)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Inter"', 'sans-serif'] },
+                    colors: {
+                        btc: { 50:'#fffbeb',100:'#fef3c7',500:'#f59e0b',600:'#d97706',700:'#b45309' },
+                        pi: { 50:'#eff6ff',100:'#dbeafe',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',900:'#1e3a8a' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color:#f8fafc; color:#0f172a; }
+        .card-shadow { box-shadow:0 4px 20px -2px rgba(15,23,42,0.05); }
+    </style>
+</head>
+<body class="antialiased selection:bg-pi-500 selection:text-white">
+
+    <!-- Top Action Bar -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200 px-4 py-2.5">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="bg-slate-900 text-white text-xs font-bold px-2 py-0.5 rounded">VISUAL MAPPING</span>
+                <span class="text-xs font-bold text-slate-600">Bitcoin × Physical Internet</span>
+            </div>
+            <button onclick="window.print()" class="inline-flex items-center space-x-1 text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white px-3 py-1.5 rounded-lg transition-colors cursor-pointer">
+                <i class="ph ph-printer"></i><span>PDF / Print</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-8 space-y-10">
+
+        <!-- Hero -->
+        <header class="text-center space-y-2">
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+                From <span class="text-btc-600">money</span> without a state, to <span class="text-pi-600">logistics</span> without a lead coordinator.
+            </h1>
+            <p class="text-sm sm:text-base font-bold text-slate-500">
+                Central thesis: <span class="text-slate-900 underline decoration-pi-500 decoration-2">removing the dependence on a central controller is what lets the network scale.</span>
+            </p>
+        </header>
+
+        <!-- Core idea: why "AI x formal verification" -->
+        <section class="bg-white rounded-2xl p-6 card-shadow border border-slate-200">
+            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 text-center">
+                Start here — why "AI × formal verification"
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="rounded-xl p-5 border border-pi-500/40 bg-pi-50/50 flex flex-col">
+                    <span class="text-xs font-bold bg-pi-600 text-white px-2.5 py-0.5 rounded-full self-start mb-2">1 · The infrastructure</span>
+                    <h3 class="font-extrabold text-slate-900 text-base mb-1.5">Formal verification is the trust layer</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">It can prove, mechanically, that a decision meets agreed rules — the role cryptography plays for Bitcoin. This is the infrastructure.</p>
+                </div>
+                <div class="rounded-xl p-5 border border-slate-200 bg-slate-50 flex flex-col">
+                    <span class="text-xs font-bold bg-slate-700 text-white px-2.5 py-0.5 rounded-full self-start mb-2">2 · The barrier</span>
+                    <h3 class="font-extrabold text-slate-900 text-base mb-1.5">On its own, people couldn't use it</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Writing and maintaining these proofs needed rare specialist skill, so it stayed in academia and safety-critical niches — not everyday logistics.</p>
+                </div>
+                <div class="rounded-xl p-5 border border-btc-500/50 bg-btc-50/60 flex flex-col">
+                    <span class="text-xs font-bold bg-btc-600 text-white px-2.5 py-0.5 rounded-full self-start mb-2">3 · What changed</span>
+                    <h3 class="font-extrabold text-slate-900 text-base mb-1.5">AI makes it usable</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">AI generates and adapts the plans and conditions, so the formal check can finally run on real operational decisions. That is what "AI × formal verification" means.</p>
+                </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-slate-100 text-center text-sm font-bold text-slate-700">
+                <span class="text-pi-700">Formal verification = the infrastructure.</span>
+                <span class="text-slate-400 mx-1">·</span>
+                <span class="text-btc-700">AI = what democratized access to it.</span>
+            </div>
+        </section>
+
+        <!-- Diagram 1: structural similarity -->
+        <section class="bg-white rounded-2xl p-6 card-shadow border border-slate-200">
+            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 text-center">
+                Why compare them? — a shared shift in network structure (topological similarity)
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-11 gap-4 items-center">
+                <div class="md:col-span-5 bg-slate-50 rounded-xl p-5 border border-slate-200 flex flex-col items-center text-center">
+                    <span class="text-xs font-bold bg-slate-200 text-slate-700 px-2.5 py-0.5 rounded-full mb-2">Conventional: centralized (hub &amp; spoke)</span>
+                    <div class="font-bold text-slate-800 text-sm mb-3">The center's capacity to process and coordinate becomes the ceiling on growth</div>
+                    <svg class="w-48 h-36 my-1" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="100" y1="75" x2="40" y2="30" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4"/>
+                        <line x1="100" y1="75" x2="160" y2="30" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4"/>
+                        <line x1="100" y1="75" x2="30" y2="110" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4"/>
+                        <line x1="100" y1="75" x2="170" y2="110" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4"/>
+                        <line x1="100" y1="75" x2="100" y2="135" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4"/>
+                        <circle cx="40" cy="30" r="10" fill="#cbd5e1"/>
+                        <circle cx="160" cy="30" r="10" fill="#cbd5e1"/>
+                        <circle cx="30" cy="110" r="10" fill="#cbd5e1"/>
+                        <circle cx="170" cy="110" r="10" fill="#cbd5e1"/>
+                        <circle cx="100" cy="135" r="10" fill="#cbd5e1"/>
+                        <circle cx="100" cy="75" r="24" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="2"/>
+                        <circle cx="100" cy="75" r="16" fill="#ef4444"/>
+                        <text x="100" y="79" text-anchor="middle" fill="white" font-size="9" font-weight="bold">Center</text>
+                    </svg>
+                    <div class="w-full grid grid-cols-2 gap-2 mt-2 text-xs text-left">
+                        <div class="bg-white p-2 rounded border border-slate-200">
+                            <span class="font-bold text-btc-600 block">Finance (before)</span>
+                            Permission and control by the state / central bank
+                        </div>
+                        <div class="bg-white p-2 rounded border border-slate-200">
+                            <span class="font-bold text-pi-600 block">Logistics (before)</span>
+                            All coordination by a single lead operator
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-1 flex flex-col items-center justify-center py-2">
+                    <div class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center shadow-md">
+                        <i class="ph-bold ph-arrow-right text-xl hidden md:block"></i>
+                        <i class="ph-bold ph-arrow-down text-xl md:hidden"></i>
+                    </div>
+                    <span class="text-[11px] font-bold text-slate-500 mt-1">Remove dependence</span>
+                </div>
+                <div class="md:col-span-5 bg-gradient-to-br from-btc-50/50 via-white to-pi-50/80 rounded-xl p-5 border-2 border-pi-500/40 flex flex-col items-center text-center">
+                    <span class="text-xs font-bold bg-pi-600 text-white px-2.5 py-0.5 rounded-full mb-2">New structure: autonomous &amp; cooperative (P2P mesh)</span>
+                    <div class="font-bold text-slate-900 text-sm mb-3">Scales without depending on a central controller's capacity</div>
+                    <svg class="w-48 h-36 my-1" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="50" y1="35" x2="150" y2="35" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.4"/>
+                        <line x1="50" y1="35" x2="35" y2="105" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.4"/>
+                        <line x1="50" y1="35" x2="100" y2="75" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.4"/>
+                        <line x1="150" y1="35" x2="165" y2="105" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.4"/>
+                        <line x1="150" y1="35" x2="100" y2="75" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.4"/>
+                        <line x1="35" y1="105" x2="100" y2="130" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.4"/>
+                        <line x1="35" y1="105" x2="100" y2="75" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.4"/>
+                        <line x1="165" y1="105" x2="100" y2="130" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.4"/>
+                        <line x1="165" y1="105" x2="100" y2="75" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.4"/>
+                        <line x1="100" y1="75" x2="100" y2="130" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.4"/>
+                        <circle cx="50" cy="35" r="12" fill="#2563eb"/>
+                        <path d="M46 35L49 38L55 32" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="150" cy="35" r="12" fill="#d97706"/>
+                        <path d="M146 35L149 38L155 32" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="100" cy="75" r="12" fill="#2563eb"/>
+                        <path d="M96 75L99 78L105 72" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="35" cy="105" r="12" fill="#d97706"/>
+                        <path d="M31 105L34 108L40 102" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="165" cy="105" r="12" fill="#2563eb"/>
+                        <path d="M161 105L164 108L170 102" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="100" cy="130" r="12" fill="#2563eb"/>
+                        <path d="M96 130L99 133L105 127" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="w-full grid grid-cols-2 gap-2 mt-2 text-xs text-left">
+                        <div class="bg-amber-50/80 p-2 rounded border border-amber-200">
+                            <span class="font-bold text-btc-700 block">Bitcoin</span>
+                            Cryptography + independent verification by each node
+                        </div>
+                        <div class="bg-pi-50 p-2 rounded border border-pi-200">
+                            <span class="font-bold text-pi-700 block">Physical Internet</span>
+                            AI candidate generation + independent checking by formal verification
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5 pt-4 border-t border-slate-100 flex flex-wrap items-center justify-center gap-2 text-xs font-bold text-slate-700">
+                <span class="text-slate-400">The scaling chain:</span>
+                <span class="bg-slate-100 px-2.5 py-1 rounded">1 · Remove central dependence</span>
+                <i class="ph-bold ph-arrow-right text-slate-400"></i>
+                <span class="bg-slate-100 px-2.5 py-1 rounded">2 · Autonomous participation on shared rules</span>
+                <i class="ph-bold ph-arrow-right text-slate-400"></i>
+                <span class="bg-slate-100 px-2.5 py-1 rounded">3 · Each party verifies independently</span>
+                <i class="ph-bold ph-arrow-right text-slate-400"></i>
+                <span class="bg-pi-600 text-white px-2.5 py-1 rounded">4 · Scales without central capacity as a limit</span>
+            </div>
+        </section>
+
+        <!-- Diagram 2: the crucial difference -->
+        <section class="bg-white rounded-2xl p-6 card-shadow border border-slate-200">
+            <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 text-center">
+                Why it can't be copied directly — the decisive difference in how responsibility is handled
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
+                <div class="bg-amber-50/40 rounded-xl p-5 border border-amber-200/80 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <span class="text-xs font-bold bg-btc-500 text-white px-2.5 py-0.5 rounded-full mb-2 inline-block">Bitcoin-type (fully digital)</span>
+                        <div class="font-bold text-slate-800 text-sm mb-2">Verifies only transaction validity (the protocol does not allocate responsibility)</div>
+                    </div>
+                    <svg class="w-60 h-28 my-1" viewBox="0 0 240 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="45" cy="50" r="18" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+                        <text x="45" y="54" text-anchor="middle" fill="#b45309" font-size="9" font-weight="bold">Sender</text>
+                        <line x1="68" y1="50" x2="172" y2="50" stroke="#f59e0b" stroke-width="3"/>
+                        <polygon points="172,50 164,45 164,55" fill="#f59e0b"/>
+                        <rect x="74" y="34" width="92" height="32" rx="6" fill="#d97706"/>
+                        <text x="120" y="48" text-anchor="middle" fill="white" font-size="8.5" font-weight="bold">Signature &amp; balance OK</text>
+                        <text x="120" y="60" text-anchor="middle" fill="#fef3c7" font-size="7">(finality improves with confirmations)</text>
+                        <circle cx="195" cy="50" r="18" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+                        <text x="195" y="54" text-anchor="middle" fill="#b45309" font-size="9" font-weight="bold">Receiver</text>
+                        <text x="120" y="95" text-anchor="middle" fill="#64748b" font-size="9" font-weight="bold">* The protocol does not define the boundary of legal responsibility</text>
+                    </svg>
+                    <div class="w-full bg-white p-2.5 rounded-lg border border-amber-200 text-xs text-slate-600">
+                        Because it moves digital data, <strong class="text-slate-800">the protocol does not handle liability for physical damage or delay.</strong>
+                    </div>
+                </div>
+                <div class="bg-pi-50/50 rounded-xl p-5 border-2 border-pi-500/40 flex flex-col items-center text-center justify-between">
+                    <div>
+                        <span class="text-xs font-bold bg-pi-600 text-white px-2.5 py-0.5 rounded-full mb-2 inline-block">AI × formal verification (connected to the physical world)</span>
+                        <div class="font-bold text-slate-900 text-sm mb-2">Strictly separates and checks the boundary of responsibility between companies</div>
+                    </div>
+                    <svg class="w-60 h-28 my-1" viewBox="0 0 240 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="22" width="95" height="52" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+                        <text x="57" y="42" text-anchor="middle" fill="#1e3a8a" font-size="9.5" font-weight="bold">Company A's zone</text>
+                        <text x="57" y="58" text-anchor="middle" fill="#2563eb" font-size="8">Measures temp. &amp; time</text>
+                        <rect x="135" y="22" width="95" height="52" rx="6" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.5"/>
+                        <text x="182" y="42" text-anchor="middle" fill="#312e81" font-size="9.5" font-weight="bold">Company B's zone</text>
+                        <text x="182" y="58" text-anchor="middle" fill="#4338ca" font-size="8">Receipt / next step</text>
+                        <line x1="120" y1="8" x2="120" y2="85" stroke="#e11d48" stroke-width="2.5" stroke-dasharray="3 3"/>
+                        <rect x="80" y="36" width="80" height="24" rx="4" fill="#e11d48"/>
+                        <text x="120" y="51" text-anchor="middle" fill="white" font-size="8.5" font-weight="bold">Check the boundary</text>
+                        <text x="120" y="100" text-anchor="middle" fill="#0f172a" font-size="8.5" font-weight="bold">Custody duties around handover made machine-readable and checked for conformance</text>
+                    </svg>
+                    <div class="w-full bg-white p-2.5 rounded-lg border border-pi-200 text-xs text-slate-700">
+                        Because it involves real cargo and incidents, <strong class="text-pi-700">checking agreed responsibility conditions against measured evidence</strong> is essential.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Table 1 -->
+        <section class="space-y-3">
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded bg-slate-900 text-white text-xs flex items-center justify-center">I</span>
+                Mapping of social structure and network principle
+            </h2>
+            <div class="bg-white rounded-xl card-shadow border border-slate-200 overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-900 text-white text-xs sm:text-sm">
+                            <th class="py-3 px-4 w-1/4 border-r border-slate-800">Axis</th>
+                            <th class="py-3 px-4 border-r border-slate-800 bg-btc-600/20 text-amber-200"><i class="ph-fill ph-currency-btc text-btc-500 mr-1"></i>Bitcoin</th>
+                            <th class="py-3 px-4 bg-pi-600/30 text-pi-100"><i class="ph-fill ph-package text-pi-400 mr-1"></i>Physical Internet</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-xs sm:text-sm">
+                        <tr>
+                            <td class="py-3 px-4 font-bold text-slate-700 bg-slate-50">Dependence removed</td>
+                            <td class="py-3 px-4 text-slate-600">State / central bank (fiat currency)</td>
+                            <td class="py-3 px-4 font-bold text-pi-700 bg-pi-50/30">A specific lead logistics operator (central control &amp; coordination)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-bold text-slate-700 bg-slate-50">Conventional constraint</td>
+                            <td class="py-3 px-4 text-slate-600">The state's monetary system / centralized control</td>
+                            <td class="py-3 px-4 font-semibold text-slate-800 bg-pi-50/30">The lead operator's capacity, interests, and coordination cost</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-bold text-slate-700 bg-slate-50">Basis of trust</td>
+                            <td class="py-3 px-4 text-slate-600">Cryptography, shared rules, distributed consensus</td>
+                            <td class="py-3 px-4 font-bold text-pi-700 bg-pi-50/30">Formal verification, shared rules, measured evidence, agreement</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-bold text-slate-700 bg-slate-50">How participation works</td>
+                            <td class="py-3 px-4 text-slate-600">Join without central permission</td>
+                            <td class="py-3 px-4 font-semibold text-slate-800 bg-pi-50/30">Join on shared conditions, without case-by-case coordination by a lead operator</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-bold text-slate-700 bg-slate-50">Legitimacy of decisions</td>
+                            <td class="py-3 px-4 text-slate-600">Each node <strong>independently verifies</strong> transactions</td>
+                            <td class="py-3 px-4 font-bold text-pi-700 bg-pi-50/30">Each company <strong>independently verifies</strong> adoption / operating conditions</td>
+                        </tr>
+                        <tr class="bg-amber-50/30">
+                            <td class="py-3 px-4 font-bold text-slate-900 bg-slate-100">Decentralization &amp; responsibility</td>
+                            <td class="py-3 px-4 text-slate-600">Verifies transaction validity (<strong>legal responsibility out of scope</strong>)</td>
+                            <td class="py-3 px-4 font-bold text-rose-700 bg-rose-50/40">Also verifies the consistency of each party's <strong>responsibility boundary and performance conditions</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-4 font-bold text-slate-700 bg-slate-50">Greatest significance</td>
+                            <td class="py-3 px-4 text-slate-600">A value-transfer base that doesn't presuppose state currency</td>
+                            <td class="py-3 px-4 font-bold text-pi-900 bg-pi-100/50">A logistics-cooperation base not capped by a single company's capacity</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Table 2 -->
+        <section class="space-y-3">
+            <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+                <span class="w-6 h-6 rounded bg-slate-900 text-white text-xs flex items-center justify-center">II</span>
+                Mapping of technical architecture (7 functional comparisons)
+            </h2>
+            <div class="bg-white rounded-xl card-shadow border border-slate-200 overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-900 text-white text-xs sm:text-sm">
+                            <th class="py-3 px-4 w-1/4 border-r border-slate-800">Functional layer</th>
+                            <th class="py-3 px-4 border-r border-slate-800 bg-btc-600/20 text-amber-200">Bitcoin</th>
+                            <th class="py-3 px-4 bg-pi-600/30 text-pi-100">AI × formal verification</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-xs sm:text-sm">
+                        <tr>
+                            <td class="py-2.5 px-4 font-bold text-slate-700 bg-slate-50">1 · Shared rules</td>
+                            <td class="py-2.5 px-4 text-slate-600">Consensus rules</td>
+                            <td class="py-2.5 px-4 text-slate-800 bg-pi-50/30 font-medium">Participation, adoption, and responsibility-sharing rules</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 px-4 font-bold text-slate-700 bg-slate-50">2 · Proposal / generation</td>
+                            <td class="py-2.5 px-4 text-slate-600">Transaction creation by a wallet</td>
+                            <td class="py-2.5 px-4 text-pi-700 bg-pi-50/30 font-bold">AI generates candidate plans and adjusts conditions</td>
+                        </tr>
+                        <tr class="bg-pi-50/60">
+                            <td class="py-2.5 px-4 font-bold text-pi-900 bg-pi-100/60">3 · Independent verification</td>
+                            <td class="py-2.5 px-4 text-slate-700">Full nodes verify signatures &amp; UTXOs</td>
+                            <td class="py-2.5 px-4 text-pi-900 font-bold">Each company's verifier checks conformance (formal verification, e.g. Lean 4)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 px-4 font-bold text-slate-700 bg-slate-50">4 · Consensus / state</td>
+                            <td class="py-2.5 px-4 text-slate-600">PoW, blockchain (prevents double-spend)</td>
+                            <td class="py-2.5 px-4 text-slate-800 bg-pi-50/30 font-medium">Approval &amp; reservation state, conflict resolution (prevents double-booking)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 px-4 font-bold text-slate-700 bg-slate-50">5 · Execution / finality</td>
+                            <td class="py-2.5 px-4 text-slate-600">Broadcast, block record, confirmation</td>
+                            <td class="py-2.5 px-4 text-slate-800 bg-pi-50/30 font-medium">Delivery, handover, confirmation of custody transfer</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 px-4 font-bold text-slate-700 bg-slate-50">6 · Result verification</td>
+                            <td class="py-2.5 px-4 text-slate-600">Verify block validity and confirmation state</td>
+                            <td class="py-2.5 px-4 text-pi-700 bg-pi-50/30 font-bold">Verify with measured evidence: temperature, location, arrival, etc.</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 px-4 font-bold text-slate-700 bg-slate-50">7 · Participant cooperation</td>
+                            <td class="py-2.5 px-4 text-slate-600">Each node applies the rules independently</td>
+                            <td class="py-2.5 px-4 text-slate-800 bg-pi-50/30 font-medium">Each company keeps its own conditions and decision rights while cooperating</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+                <div class="bg-slate-900 text-white px-3.5 py-2.5 rounded-xl flex items-start gap-2.5 text-xs">
+                    <span class="bg-amber-400 text-slate-950 font-extrabold px-1.5 py-0.5 rounded shrink-0 mt-0.5">Limit 1</span>
+                    <div><strong>Mining ≠ AI:</strong> mining finalizes history; AI handles generating and adjusting delivery candidates.</div>
+                </div>
+                <div class="bg-slate-900 text-white px-3.5 py-2.5 rounded-xl flex items-start gap-2.5 text-xs">
+                    <span class="bg-sky-400 text-slate-950 font-extrabold px-1.5 py-0.5 rounded shrink-0 mt-0.5">Limit 2</span>
+                    <div><strong>Consensus ≠ formal verification:</strong> Lean 4 proves the logic of a specification; consensus syncs the latest reservation state.</div>
+                </div>
+                <div class="bg-slate-900 text-white px-3.5 py-2.5 rounded-xl flex items-start gap-2.5 text-xs">
+                    <span class="bg-rose-400 text-slate-950 font-extrabold px-1.5 py-0.5 rounded shrink-0 mt-0.5">Limit 3</span>
+                    <div><strong>What formal verification guarantees:</strong> consistency with defined conditions (the truth of measured values and the final legal judgment are separate).</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Table 3 -->
+        <section class="space-y-3">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h2 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+                    <span class="w-6 h-6 rounded bg-slate-900 text-white text-xs flex items-center justify-center">III</span>
+                    Unbundling the lead operator's "all coordination" and reassigning it to technology
+                </h2>
+                <span class="text-xs font-semibold text-slate-500">* Each company stays the responsible party; only the central coordination work is replaced</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs sm:text-sm">
+                <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-center justify-between gap-2">
+                    <span class="text-slate-500 line-through">1 · Learn each company's conditions</span>
+                    <i class="ph-bold ph-arrow-right text-pi-500 shrink-0"></i>
+                    <span class="font-bold text-slate-900 bg-pi-50 px-2.5 py-1 rounded border border-pi-200">Declare conditions</span>
+                </div>
+                <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-center justify-between gap-2">
+                    <span class="text-slate-500 line-through">2 · Coordinate delivery candidates</span>
+                    <i class="ph-bold ph-arrow-right text-pi-500 shrink-0"></i>
+                    <span class="font-bold text-pi-700 bg-pi-50 px-2.5 py-1 rounded border border-pi-200">AI candidate generation</span>
+                </div>
+                <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-center justify-between gap-2">
+                    <span class="text-slate-500 line-through">3 · Judge conformance</span>
+                    <i class="ph-bold ph-arrow-right text-pi-500 shrink-0"></i>
+                    <span class="font-bold text-pi-700 bg-pi-50 px-2.5 py-1 rounded border border-pi-200">Formal / independent verification</span>
+                </div>
+                <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-center justify-between gap-2">
+                    <span class="text-slate-500 line-through">4 · Resolve double bookings</span>
+                    <i class="ph-bold ph-arrow-right text-pi-500 shrink-0"></i>
+                    <span class="font-bold text-slate-900 bg-pi-50 px-2.5 py-1 rounded border border-pi-200">Consensus &amp; state management</span>
+                </div>
+                <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-center justify-between gap-2">
+                    <span class="text-slate-500 line-through">5 · Check progress / completion</span>
+                    <i class="ph-bold ph-arrow-right text-pi-500 shrink-0"></i>
+                    <span class="font-bold text-slate-900 bg-pi-50 px-2.5 py-1 rounded border border-pi-200">Measured evidence &amp; result verification</span>
+                </div>
+                <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-center justify-between gap-2">
+                    <span class="text-slate-500 line-through">6 · Clarify liability on incidents</span>
+                    <i class="ph-bold ph-arrow-right text-pi-500 shrink-0"></i>
+                    <span class="font-bold text-slate-900 bg-pi-50 px-2.5 py-1 rounded border border-pi-200">Preconditions + verification history</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="bg-slate-900 text-white rounded-xl p-4 text-center shadow-sm">
+            <p class="text-xs sm:text-sm font-bold tracking-wide">
+                Conclusion: Bitcoin realized a way to <span class="text-amber-400">verify transactions</span> without a central controller. AI × formal verification extends that principle of distributed verification to <span class="text-pi-300 underline decoration-rose-400 decoration-2">real-world inter-company cooperation, where the boundary of responsibility is indispensable.</span>
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-slate-200 pt-4 text-[11px] text-slate-400 flex flex-wrap justify-between gap-2">
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                <strong class="text-slate-500">Primary sources:</strong>
+                <a href="https://bitcoin.org/bitcoin.pdf" target="_blank" rel="noopener" class="hover:text-slate-700 underline">Nakamoto (2008)</a> /
+                <a href="https://bitcoin.org/en/bitcoin-core/features/validation" target="_blank" rel="noopener" class="hover:text-slate-700 underline">Bitcoin Core Validation</a> /
+                <a href="https://lean-lang.org/" target="_blank" rel="noopener" class="hover:text-slate-700 underline">Lean 4</a> /
+                <a href="https://doi.org/10.1007/s12159-011-0049-6" target="_blank" rel="noopener" class="hover:text-slate-700 underline">Montreuil (2011)</a> /
+                <a href="https://transport.ec.europa.eu/transport-themes/digital-transport-and-logistics-forum-dtlf_en" target="_blank" rel="noopener" class="hover:text-slate-700 underline">EC DTLF</a> /
+                <a href="https://unece.org/transport/documents/2021/05/standards/convention-contract-international-carriage-goods-road-cmr" target="_blank" rel="noopener" class="hover:text-slate-700 underline">UNECE (CMR)</a>
+            </div>
+            <div>
+                * Distinguishes Bitcoin's existing implementation (fact) from the planned Physical Internet implementation (concept).
+            </div>
+        </footer>
+
+    </main>
+</body>
+</html>
